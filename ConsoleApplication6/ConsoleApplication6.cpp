@@ -10,11 +10,14 @@ static void asciitable();
 
 static void asciitable()
 {
+	int counter = 0;
 	for(int i = 65; i <= 122; i++)
 	{
 		if(i < 91 || i > 96)
 		{
 				cout << char(i) <<" ";
+				if(counter%13 == 0) //this will split in 4 lines
+					cout << "\n";
 		}
 		
 	}
@@ -48,10 +51,54 @@ static void temperature ()
 
 }
 
+// this code needs to be worked vvv
+//static void functionoverload(){
+//	overload ol;
+//	
+//	ol.print(1);
+//}
+//
+//class overload{
+//public:
+//	void print(int integer){
+//		cout << "testing integer: " << integer;
+//}
+//	void print(double doubl){
+//		cout << "testing double: " << doubl;
+//	}
+//};
+
+static void questionSix() {
+	
+	int in;
+
+	cout << "Enter the question number: ";
+
+	cin >> in;
+
+	switch(in){
+		case 1:
+		cout << "This is the question 1.\n";
+		break;
+
+		case 2:
+		cout << "This is the question 2.\n";
+		break;
+		
+		//repeat till question 6
+		
+		default:
+			cout << "Invalid question.\n";
+		break;
+	}
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	//temperature();
-	asciitable(); 
+	//asciitable(); 
+	//functionOverload();
+	questionSix();
 
 	system("PAUSE");
 
