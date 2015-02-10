@@ -1,25 +1,31 @@
-// ConsoleApplication6.cpp : Defines the entry point for the console application.
+// loop if statement pattern.cpp : Defines the entry point for the console application.
 //
+
+
+
 
 #include "stdafx.h"
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-static void temperature ();
+
+static void temperature();
 static void asciitable();
 
 static void asciitable()
 {
 	int counter = 0;
-	for(int i = 65; i <= 122; i++)
+	for (int i = 65; i <= 122; i++)
 	{
-		if(i < 91 || i > 96)
+		if (i < 91 || i > 96)
 		{
-				cout << char(i) <<" ";
-				if(counter%13 == 0) //this will split in 4 lines
-					cout << "\n";
+			cout << char(i) << " ";
+			if (counter % 13 == 0) //this will split in 4 lines
+				cout << "\n";
 		}
-		
+
 	}
 
 
@@ -27,10 +33,10 @@ static void asciitable()
 }
 
 
-static void temperature ()
+static void temperature()
 {
 	int clow;
-	int chigh; 
+	int chigh;
 
 	double ans;
 
@@ -40,10 +46,10 @@ static void temperature ()
 	cout << "Enter the high fahrenheit temperature: ";
 	cin >> chigh;
 
-	for(int i=clow; i <= chigh; i++)
+	for (int i = clow; i <= chigh; i++)
 	{
 
-		ans = (i - 32.0)*5.0/9.0;
+		ans = (i - 32.0)*5.0 / 9.0;
 		cout << "Answer is: " << ans << endl;
 
 	}
@@ -69,38 +75,89 @@ static void temperature ()
 //};
 
 static void questionSix() {
-	
+
 	int in;
 
 	cout << "Enter the question number: ";
 
 	cin >> in;
 
-	switch(in){
-		case 1:
+	switch (in){
+	case 1:
 		cout << "This is the question 1.\n";
 		break;
 
-		case 2:
+	case 2:
 		cout << "This is the question 2.\n";
 		break;
-		
+
 		//repeat till question 6
-		
-		default:
-			cout << "Invalid question.\n";
+
+	default:
+		cout << "Invalid question.\n";
 		break;
 	}
 }
 
+
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+	
 	//temperature();
 	//asciitable(); 
 	//functionOverload();
 	questionSix();
+	
+	
+	
+	
+	char quit;
+	int cnt = 0;
+	string xx = "";
+	int cnt2 = 9;
 
-	system("PAUSE");
+
+	while (cnt < 20)
+	{
+		if (cnt > 9)
+		{
+			cout << xx.substr((0), cnt2) << endl;
+			cnt2--;
+
+		}
+		else{
+			xx = xx + "*";
+
+			cout << xx << endl;
+		}
+		cnt++;
+		//cnt = cnt+2; this is how i count by two's
+	}
+
+	cout << "Press any letter to quit ";
+	cin >> quit;
+
+	////first triangle
+	//for (int r = 0; r < 10; r++)
+	//{
+	//	for (int c = 0; c < r; c++)
+	//	{
+	//		cout << "*";
+	//	}
+	//	cout << endl;
+	//}
+
+	////second triangle
+	//for (int r = 10; r > 0; r--)
+	//{
+	//	for (int c = 0; c < r; c++)
+	//	{
+	//		cout << "*";
+	//	}
+	//	cout << endl;
+	//}
+	//system("PAUSE");
 
 	return 0;
 }
