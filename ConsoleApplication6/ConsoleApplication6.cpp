@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 
+
 using namespace std;
 
 
@@ -57,22 +58,22 @@ static void temperature()
 
 }
 
-// this code needs to be worked vvv
-//static void functionoverload(){
-//	overload ol;
-//	
-//	ol.print(1);
-//}
-//
-//class overload{
-//public:
-//	void print(int integer){
-//		cout << "testing integer: " << integer;
-//}
-//	void print(double doubl){
-//		cout << "testing double: " << doubl;
-//	}
-//};
+this (a + b)*c
+static void functionoverload(){
+	overload ol;
+	
+	ol.print(1);
+}
+
+class overload{
+public:
+	void print(int integer){
+		cout << "testing integer: " << integer;
+}
+	void print(double doubl){
+		cout << "testing double: " << doubl;
+	}
+};
 
 static void questionSix() {
 
@@ -91,6 +92,16 @@ static void questionSix() {
 		cout << "This is the question 2.\n";
 		break;
 
+	case 3:
+		cout << "This is the question 3.\n";
+
+	case 4:
+		cout << "This is the question 4.\n";
+
+	case 5:
+		cout << "This is the question 5.\n";
+
+
 		//repeat till question 6
 
 	default:
@@ -104,9 +115,9 @@ static void questionSix() {
 int _tmain(int argc, _TCHAR* argv[])
 {
 	
-	//temperature();
-	//asciitable(); 
-	//functionOverload();
+	temperature();
+	asciitable(); 
+	functionOverload();
 	questionSix();
 	
 	
@@ -138,7 +149,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << "Press any letter to quit ";
 	cin >> quit;
 
-	////first triangle
+	////first triangle				//failure pattern
 	//for (int r = 0; r < 10; r++)
 	//{
 	//	for (int c = 0; c < r; c++)
