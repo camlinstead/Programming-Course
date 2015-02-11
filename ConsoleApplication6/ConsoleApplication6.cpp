@@ -13,6 +13,7 @@ using namespace std;
 
 static void temperature();
 static void asciitable();
+static void functionoverload()
 
 static void asciitable()
 {
@@ -57,10 +58,10 @@ static void temperature()
 
 }
 
- this code needs to be worked vvv
+this code needs to be worked vvv
 static void functionoverload(){
 	overload ol;
-	
+
 	ol.print(1);
 }
 
@@ -68,7 +69,7 @@ class overload{
 public:
 	void print(int integer){
 		cout << "testing integer: " << integer;
-}
+	}
 	void print(double doubl){
 		cout << "testing double: " << doubl;
 	}
@@ -113,15 +114,15 @@ static void questionSix() {
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	
-	temperature();
-	asciitable(); 
-	functionOverload();
+
+	/*temperature();
+	asciitable();
+	functionOverload();*/
 	questionSix();
-	
-	
-	
-	
+
+
+
+
 	char quit;
 	int cnt = 0;
 	string xx = "";
