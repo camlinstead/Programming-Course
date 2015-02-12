@@ -13,9 +13,11 @@ using namespace std;
 
 static void temperature();
 static void asciitable();
-static void functionoverload()
+static void functionoverload();
+static void myfunction(int num1, int num2, int num3);
+static void myfunction(double num1, double num2, double num3);
 
-static void asciitable()
+	static void asciitable()
 {
 	int counter = 0;
 	for (int i = 65; i <= 122; i++)
@@ -58,76 +60,11 @@ static void temperature()
 
 }
 
-this code needs to be worked vvv
-static void functionoverload(){
-	overload ol;
-
-	ol.print(1);
-}
-
-class overload{
-public:
-	void print(int integer){
-		cout << "testing integer: " << integer;
-	}
-	void print(double doubl){
-		cout << "testing double: " << doubl;
-	}
-};
-
-static void questionSix() {
-
-	int in;
-
-	cout << "Enter the question number: ";
-
-	cin >> in;
-
-	switch (in){
-	case 1:
-		cout << "This is the question 1.\n";
-		break;
-
-	case 2:
-		cout << "This is the question 2.\n";
-		break;
-
-	case 3:
-		cout << "This is the question 3.\n";
-
-	case 4:
-		cout << "This is the question 4.\n";
-
-	case 5:
-		cout << "This is the question 5.\n";
-
-
-		//repeat till question 6
-
-	default:
-		cout << "Invalid question.\n";
-		break;
-	}
-}
-
-
-
-int _tmain(int argc, _TCHAR* argv[])
+static void Pattern()
 {
-
-	/*temperature();
-	asciitable();
-	functionOverload();*/
-	questionSix();
-
-
-
-
-	char quit;
-	int cnt = 0;
-	string xx = "";
+	int cnt = 0; 
 	int cnt2 = 9;
-
+	string xx = ""; 
 
 	while (cnt < 20)
 	{
@@ -146,29 +83,124 @@ int _tmain(int argc, _TCHAR* argv[])
 		//cnt = cnt+2; this is how i count by two's
 	}
 
-	cout << "Press any letter to quit ";
+
+
+}
+
+
+
+//this code needs to be worked vvv
+static void functionoverload(){
+
+	int x;
+	int q;
+	int z;
+	int choice;
+
+	double t;
+	double u;
+	double y;
+	cout << "Enter 1 for integer's and 2 for doubles\n\n";
+	cin >> choice;
+	
+	if (choice == 1)
+	{
+	cout << "enter num1 ";
+	cin >> x;
+
+	cout << "enter num2 ";
+	cin >> q;
+
+	cout << "enter num3 ";
+	cin >> z;
+
+	myfunction(x,q,z);
+	}
+	else if(choice == 2){
+	
+	cout << "enter num1 ";
+	cin >> t;
+
+	cout << "enter num2 ";
+	cin >> u;
+
+	cout << "enter num3 ";
+	cin >> y;
+
+	myfunction(t,u,y);
+	
+	}
+}
+
+static void myfunction(int num1, int num2, int num3)
+{
+	int ans;
+	ans = num1 + num2 * num3;
+	cout << "Your answer is: " << ans << endl << endl;
+}
+
+
+static void myfunction(double num1, double num2, double num3)		//reference to complete template
+{
+	double ans;
+	ans = num1 + num2 * num3;
+	cout << "Your answer is: " << ans << endl << endl;
+}
+
+static void questionSix() {
+
+	int in;
+
+	cout << "Enter the question number: \n1-temp\n2-pattern\n3-overload\n4-template\n5-asciitable\n\n";
+
+	cin >> in;
+
+	switch (in){
+	case 1:
+		cout << "This is the question 1. c-f\n";
+		temperature();
+		break;
+
+	case 2:
+		cout << "This is the question 2. Pattern\n";
+		Pattern();
+		break;
+
+	case 3:
+		cout << "This is the question 3. Overload\n";
+		functionoverload();
+		break;
+
+	case 4:
+		cout << "This is the question 4. Template\n";
+		break;
+
+	case 5:
+		cout << "This is the question 5. AsciiTable\n";
+		asciitable();
+		break;
+
+		//repeat till question 6
+
+	default:
+		cout << "Invalid question.\n";
+		break;
+	}
+}
+
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	char quit = 'n';
+
+	while (quit == 'n')
+	{
+	questionSix();
+
+	cout << "Press y to quit or n to continue: ";
 	cin >> quit;
-
-	////first triangle				//failure pattern
-	//for (int r = 0; r < 10; r++)
-	//{
-	//	for (int c = 0; c < r; c++)
-	//	{
-	//		cout << "*";
-	//	}
-	//	cout << endl;
-	//}
-
-	////second triangle
-	//for (int r = 10; r > 0; r--)
-	//{
-	//	for (int c = 0; c < r; c++)
-	//	{
-	//		cout << "*";
-	//	}
-	//	cout << endl;
-	//}
-	//system("PAUSE");
+	}
 
 	return 0;
 }
