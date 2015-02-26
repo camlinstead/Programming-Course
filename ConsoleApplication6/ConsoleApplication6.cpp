@@ -132,6 +132,13 @@ static void functionoverload(){
 	}
 }
 
+template <class T>
+T myfunction4 (T a, T b, T c) {
+  T ans;
+  ans = a+b*c;
+  return (ans);
+}
+
 static void myfunction(int num1, int num2, int num3)
 {
 	int ans;
@@ -173,6 +180,7 @@ static void questionSix() {
 
 	case 4:
 		cout << "This is the question 4. Template\n";
+		cout<< myfunction4(.5, .2, .1);
 		break;
 
 	case 5:
