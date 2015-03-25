@@ -1,214 +1,120 @@
-// loop if statement pattern.cpp : Defines the entry point for the console application.
+// Lec3_Headerfiles and classes.cpp : Defines the entry point for the console application.
 //
-
-
-
-
 #include "stdafx.h"
 #include <iostream>
 #include <string>
 
+#include "myFormulas.h"
+#include "Rectangle.h"
+
 using namespace std;
 
 
-static void temperature();
-static void asciitable();
-static void functionoverload();
-static void myfunction(int num1, int num2, int num3);
-static void myfunction(double num1, double num2, double num3);
 
-	static void asciitable()
+class person{
+private:
+	string fn;
+	string ln;
+	double slry;
+public:
+	void setFirstName(string);
+	void setLastName(string);
+	void setSalary(double);
+	string getFullName() const;
+	double getSalary() const;
+	double getDoubleSalary() const;
+
+
+};
+
+void person::setFirstName(string FirstName)
 {
-	int counter = 0;
-	for (int i = 65; i <= 122; i++)
-	{
-		if (i < 91 || i > 96)
-		{
-			cout << char(i) << " ";
-			if (counter % 13 == 0) //this will split in 4 lines
-				cout << "\n";
-		}
-
-	}
-
-
-
+	fn = FirstName;
 }
-
-
-static void temperature()
+void person::setLastName(string LastName)
 {
-	int clow;
-	int chigh;
 
-	double ans;
-
-	cout << "Enter the low fahrenheit temperature: ";
-	cin >> clow;
-
-	cout << "Enter the high fahrenheit temperature: ";
-	cin >> chigh;
-
-	for (int i = clow; i <= chigh; i++)
-	{
-
-		ans = (i - 32.0)*5.0 / 9.0;
-		cout << "Answer is: " << ans << endl;
-
-	}
-
-
+	ln = LastName;
 }
-
-static void Pattern()
+void person::setSalary(double salary)
 {
-	int cnt = 0; 
-	int cnt2 = 9;
-	string xx = ""; 
 
-	while (cnt < 20)
-	{
-		if (cnt > 9)
-		{
-			cout << xx.substr((0), cnt2) << endl;
-			cnt2--;
-
-		}
-		else{
-			xx = xx + "*";
-
-			cout << xx << endl;
-		}
-		cnt++;
-		//cnt = cnt+2; this is how i count by two's
-	}
-
-
-
+	slry=salary;
 }
 
-
-
-//this code needs to be worked vvv
-static void functionoverload(){
-
-	int x;
-	int q;
-	int z;
-	int choice;
-
-	double t;
-	double u;
-	double y;
-	cout << "Enter 1 for integer's and 2 for doubles\n\n";
-	cin >> choice;
-	
-	if (choice == 1)
-	{
-	cout << "enter num1 ";
-	cin >> x;
-
-	cout << "enter num2 ";
-	cin >> q;
-
-	cout << "enter num3 ";
-	cin >> z;
-
-	myfunction(x,q,z);
-	}
-	else if(choice == 2){
-	
-	cout << "enter num1 ";
-	cin >> t;
-
-	cout << "enter num2 ";
-	cin >> u;
-
-	cout << "enter num3 ";
-	cin >> y;
-
-	myfunction(t,u,y);
-	
-	}
-}
-
-template <class T>
-T myfunction4 (T a, T b, T c) {
-  T ans;
-  ans = a+b*c;
-  return (ans);
-}
-
-static void myfunction(int num1, int num2, int num3)
+string person::getFullName() const
 {
-	int ans;
-	ans = num1 + num2 * num3;
-	cout << "Your answer is: " << ans << endl << endl;
+
+return fn + " " + ln;
 }
-
-
-static void myfunction(double num1, double num2, double num3)		//reference to complete template
+ 
+double person::getSalary() const
 {
-	double ans;
-	ans = num1 + num2 * num3;
-	cout << "Your answer is: " << ans << endl << endl;
+
+return slry;
+
 }
 
-static void questionSix() {
-
-	int in;
-
-	cout << "Enter the question number: \n1-temp\n2-pattern\n3-overload\n4-template\n5-asciitable\n\n";
-
-	cin >> in;
-
-	switch (in){
-	case 1:
-		cout << "This is the question 1. c-f\n";
-		temperature();
-		break;
-
-	case 2:
-		cout << "This is the question 2. Pattern\n";
-		Pattern();
-		break;
-
-	case 3:
-		cout << "This is the question 3. Overload\n";
-		functionoverload();
-		break;
-
-	case 4:
-		cout << "This is the question 4. Template\n";
-		cout<< myfunction4(.5, .2, .1);
-		break;
-
-	case 5:
-		cout << "This is the question 5. AsciiTable\n";
-		asciitable();
-		break;
-
-		//repeat till question 6
-
-	default:
-		cout << "Invalid question.\n";
-		break;
-	}
-}
-
-
-
-int _tmain(int argc, _TCHAR* argv[])
+double person::getDoubleSalary() const
 {
-	char quit = 'n';
 
-	while (quit == 'n')
-	{
-	questionSix();
+return slry*2;
+}
 
-	cout << "Press y to quit or n to continue: ";
+int _tmain(int argc, _TCHAR* argv[]) {
+
+	char quit;
+	double nm1, nm2, ans;
+
+	cout <<"Header Example" << endl;
+	cout <<"Enter your first number: ";
+	cin>>nm1;
+
+	cout << endl << "Enter your second number:";
+	cin >> nm2;
+
+	ans = add2Nums(nm1, nm2);
+	cout<<"Add:" << ans << endl;
+
+	ans = sub2Nums(nm1, nm2);
+	cout<<"Subtract:" << ans << endl;
+
+	ans = mult2Nums(nm1, nm2);
+	cout<<"Multiple:" << ans << endl;
+
+	ans = div2Nums(nm1, nm2);
+	cout<<"Divide:" << ans << endl;
+
+	ans = avg2Nums(nm1, nm2);
+	cout<<"Average:" << ans << endl;
+
+	//////////////////////////////
+
+	cout<<endl<<"/////////// person example"<<endl;
+	person p1;
+
+	p1.setFirstName("Bubba");
+	p1.setLastName("Smith");
+	p1.setSalary(60000);
+
+
+	cout<< "Class Example one" << endl;
+	cout << p1.getFullName() << endl;
+	cout << p1.getSalary() <<endl;
+	cout<< p1.getDoubleSalary() << endl << endl;
+
+
+	cout<< " Rectangle Example" <<endl;
+	Rectangle r1;
+	r1.setWidth(30);
+	r1.setLength(70);
+
+	cout << endl<< "Width is " << r1.getWidth() <<endl;
+	cout << endl << " Length is " << r1.getLength() <<endl;
+	cout << endl<< "Area is " << r1.getArea()<<endl;
+
+
+	cout << endl << endl <<"Enter q to quit";
 	cin >> quit;
-	}
-
 	return 0;
 }
