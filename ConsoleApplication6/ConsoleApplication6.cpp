@@ -1,120 +1,145 @@
-// Lec3_Headerfiles and classes.cpp : Defines the entry point for the console application.
+// Lec_2.cpp : Defines the entry point for the console application.
 //
-#include "stdafx.h"
-#include <iostream>
-#include <string>
 
-#include "myFormulas.h"
-#include "Rectangle.h"
+#include "stdafx.h"
+#include <String>
+#include <vector>
+#include <iostream>
 
 using namespace std;
 
+// prototyping
+static void arraypass1(int a[], int asize);
+static void arraypass2 (int a[][4], int rows, int cols);
 
+static void arraypass1(int a[], int asize)
+{
+	cout<<"a array passed \n";
+	for(int cntr = 0; cntr < asize; cntr++)
+	{
+		cout << a[cntr] << " ";
+	}
 
-class person{
-private:
-	string fn;
-	string ln;
-	double slry;
-public:
-	void setFirstName(string);
-	void setLastName(string);
-	void setSalary(double);
-	string getFullName() const;
-	double getSalary() const;
-	double getDoubleSalary() const;
+	cout << endl << endl;
 
+}
 
+static void arraypass2 (int a[][4], int rows, int cols)
+{
+
+}
+
+struct person {
+	string lname;
+	double salary;
+
+	
 };
 
-void person::setFirstName(string FirstName)
+int _tmain(int argc, _TCHAR* argv[]) 
 {
-	fn = FirstName;
-}
-void person::setLastName(string LastName)
-{
-
-	ln = LastName;
-}
-void person::setSalary(double salary)
-{
-
-	slry=salary;
-}
-
-string person::getFullName() const
-{
-
-return fn + " " + ln;
-}
- 
-double person::getSalary() const
-{
-
-return slry;
-
-}
-
-double person::getDoubleSalary() const
-{
-
-return slry*2;
-}
-
-int _tmain(int argc, _TCHAR* argv[]) {
 
 	char quit;
-	double nm1, nm2, ans;
 
-	cout <<"Header Example" << endl;
-	cout <<"Enter your first number: ";
-	cin>>nm1;
+	//arrays
 
-	cout << endl << "Enter your second number:";
-	cin >> nm2;
+	int x1[5];
 
-	ans = add2Nums(nm1, nm2);
-	cout<<"Add:" << ans << endl;
+	int x2[] = {41, 42, 43, 44, 45, 46};
+	int x2size = 6;
 
-	ans = sub2Nums(nm1, nm2);
-	cout<<"Subtract:" << ans << endl;
+	cout<<"x2 array ";
 
-	ans = mult2Nums(nm1, nm2);
-	cout<<"Multiple:" << ans << endl;
+	for (int cntr = 0; cntr < x2size; cntr++)
+	{
+		cout  << x2[cntr] << " ";
+	}
 
-	ans = div2Nums(nm1, nm2);
-	cout<<"Divide:" << ans << endl;
+	cout << endl<<endl;
 
-	ans = avg2Nums(nm1, nm2);
-	cout<<"Average:" << ans << endl;
+	arraypass1 (x2, x2size);
 
-	//////////////////////////////
+	int x3[][4] = {{21,22,23,24}, {41,42,43,44}, {51,52,53,54,}  };
+	
+	for (int row =0; row < 3; row++)
+	{
+		for(int col =0; col<4; col++)
+		{
+			cout << x3[row][col] << " ";
+		}
+		cout<<endl;
+	}
+	cout <<endl << endl;
 
-	cout<<endl<<"/////////// person example"<<endl;
-	person p1;
+	arraypass2(x3,3, 4);
 
-	p1.setFirstName("Bubba");
-	p1.setLastName("Smith");
-	p1.setSalary(60000);
+	//-------
+
+	vector<string> myVector;
+	
+	myVector.push_back("one");
+	myVector.push_back("two");
+	myVector.push_back("three");
+	myVector.push_back("four");
+	myVector.push_back("five");
+	myVector.push_back("six");
+	myVector.push_back("seven");
+	myVector.push_back("eight");
+
+	//print vector
+	cout << " Item in our vector\n";
+	for(int cntr = 0;cntr < myVector.size(); cntr++)
+	{
+		cout << myVector.at(cntr) << endl;
+	}
+
+	//remove last element
+	myVector.pop_back();
+		for(int cntr = 0;cntr < myVector.size(); cntr++)
+	{
+		cout << myVector.at(cntr) << endl;
+	}
+	cout<<endl<<endl;
+
+	myVector.insert(myVector.begin()+ 2,"banana");
+	for(int cntr = 0;cntr < myVector.size(); cntr++)
+		cout << myVector.at(cntr) << endl;
 
 
-	cout<< "Class Example one" << endl;
-	cout << p1.getFullName() << endl;
-	cout << p1.getSalary() <<endl;
-	cout<< p1.getDoubleSalary() << endl << endl;
+	cout <<endl << endl << endl << "structure" <<endl;
+
+	/////////////
+	person xx;
+	xx.lname = "Linstead";
+	xx.salary = 9.99;
+
+	cout << xx.lname << "   " << xx.salary;
+
+	person ArrayOfPeople[3]; 
+
+	ArrayOfPeople[0].lname = "Sally";
+	ArrayOfPeople[0].salary = 4444;
+
+		ArrayOfPeople[1].lname = "Smith";
+	ArrayOfPeople[1].salary = 6666;
+
+		ArrayOfPeople[2].lname = "Schmitt";
+	ArrayOfPeople[2].salary = 555;
+
+	cout << endl << endl;
+	cout << " Array of people\n\n";
+
+	for(int cntr = 0; cntr < 3; cntr++)
+	{
+		cout << ArrayOfPeople[cntr].lname << "  $" 
+			<< ArrayOfPeople[cntr].salary << endl;
+
+	}
 
 
-	cout<< " Rectangle Example" <<endl;
-	Rectangle r1;
-	r1.setWidth(30);
-	r1.setLength(70);
 
-	cout << endl<< "Width is " << r1.getWidth() <<endl;
-	cout << endl << " Length is " << r1.getLength() <<endl;
-	cout << endl<< "Area is " << r1.getArea()<<endl;
-
-
-	cout << endl << endl <<"Enter q to quit";
+	cout<<" please enter something to quit: ";
 	cin >> quit;
+
 	return 0;
 }
